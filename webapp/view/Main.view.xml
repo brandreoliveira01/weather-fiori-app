@@ -1,0 +1,15 @@
+<mvc:View
+	controllerName="weatherFioriApp.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	height="100%"
+>
+	<App id="app">
+		<f:ShellBar
+			title="{i18n>appTitle}"
+			secondTitle="Short description"
+			homeIcon="../img/barlogo.png"
+		/>
+	</App>
+</mvc:View>
