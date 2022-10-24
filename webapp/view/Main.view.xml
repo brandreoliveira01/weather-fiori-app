@@ -3,13 +3,118 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:card="sap.f.cards"
 	height="100%"
 >
 	<App id="app">
-		<f:ShellBar
-			title="{i18n>appTitle}"
-			secondTitle="Short description"
-			homeIcon="../img/barlogo.png"
-		/>
+		<Page
+			showFooter="false"
+			showSubHeader="false"
+		>
+			<customHeader>
+				<f:ShellBar
+					title="{i18n>appTitle}"
+					homeIcon="../img/barlogo.png"
+				/>
+			</customHeader>
+			<content>
+				<form:SimpleForm
+					class="sapUiMediumMargin"
+					editable="true"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					columnsXL="1"
+					columnsL="1"
+					singleContainerFullSize="false"
+				>
+					<form:content>
+						<Label text="{i18n>stateLbl}"/>
+						<ComboBox
+							id="stateComboBox"
+							showSecondaryValues="true"
+							change="onStateChange"
+							items="{
+								path: '/states',
+								sorter: {
+									path: 'name'
+								}
+							}"
+						>
+							<core:ListItem
+								key="{id}"
+								text="{name}"
+							/>
+						</ComboBox>
+						<Label text="{i18n>cityLbl}"/>
+						<ComboBox
+							id="cityComboBox"
+							showSecondaryValues="true"
+							change="onCityChange"
+							items="{
+								path: '/cities',
+								length: 1000,
+								sorter: {
+									path: 'name'
+								}
+							}"
+						>
+							<core:ListItem
+								key="{id}"
+								text="{name}"
+							/>
+						</ComboBox>
+					</form:content>
+				</form:SimpleForm>
+				<HBox class="sapUiMediumMargin">
+					<f:Card
+						class="sapUiMediumMargin"
+						width="250px"
+					>
+						<f:header>
+							<card:NumericHeader
+								number="{localModel>/CurrentWeather/main/temp}°"
+								subtitle="Máx.: {localModel>/CurrentWeather/main/temp_max}° Mín.: {localModel>/CurrentWeather/main/temp_min}°"
+								title="{localModel>/CurrentWeather/weather/0/description}"
+							/>
+						</f:header>
+						<f:content>
+							<HBox alignItems="Center">
+								<ImageContent src="../img/{localModel>/CurrentWeather/weather/0/icon}.png"/>
+							</HBox>
+						</f:content>
+					</f:Card>
+					<f:Card
+						class="sapUiMediumMargin"
+						width="140px"
+					>
+						<f:header>
+							<card:NumericHeader
+								number="{localModel>/CurrentWeather/main/feels_like}°"
+								title="{i18n>feelsLikeTitle}"
+							/>
+						</f:header>
+					</f:Card>
+					<f:Card
+						class="sapUiMediumMargin"
+						width="140px"
+					>
+						<f:header>
+							<card:NumericHeader
+								number="{localModel>/CurrentWeather/main/humidity}%"
+								title="{i18n>humidityTitle}"
+							/>
+						</f:header>
+					</f:Card>
+				</HBox>
+			</content>
+		</Page>
 	</App>
 </mvc:View>

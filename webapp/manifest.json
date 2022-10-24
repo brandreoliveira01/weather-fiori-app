@@ -11,9 +11,13 @@
       "version": "1.0.0"
     },
     "dataSources": {
-      "mainService": {
-        "uri": "/weather",
-        "type": "http"
+      "states": {
+        "uri": "model/States.json",
+        "type": "JSON"
+      },
+      "cities": {
+        "uri": "model/Cities.json",
+        "type": "JSON"
       }
     }
   },
@@ -66,9 +70,20 @@
           "bundleName": "weatherFioriApp.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "mainService",
+      "statesModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "states",
         "preload": true
+      },
+      "citiesModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "cities",
+        "preload": true
+      },
+      "localModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "preload": false
       }
     },
 
