@@ -21,7 +21,7 @@
 			</customHeader>
 			<content>
 				<form:SimpleForm
-					class="sapUiMediumMargin"
+					backgroundDesign="Solid"
 					editable="true"
 					layout="ResponsiveGridLayout"
 					labelSpanXL="3"
@@ -39,6 +39,7 @@
 						<Label text="{i18n>stateLbl}"/>
 						<ComboBox
 							id="stateComboBox"
+							width="50%"
 							showSecondaryValues="true"
 							change="onStateChange"
 							items="{
@@ -56,6 +57,7 @@
 						<Label text="{i18n>cityLbl}"/>
 						<ComboBox
 							id="cityComboBox"
+							width="50%"
 							showSecondaryValues="true"
 							change="onCityChange"
 							items="{
@@ -73,47 +75,68 @@
 						</ComboBox>
 					</form:content>
 				</form:SimpleForm>
-				<HBox class="sapUiMediumMargin">
-					<f:Card
-						class="sapUiMediumMargin"
-						width="250px"
-					>
-						<f:header>
-							<card:NumericHeader
-								number="{localModel>/CurrentWeather/main/temp}°"
-								subtitle="Máx.: {localModel>/CurrentWeather/main/temp_max}° Mín.: {localModel>/CurrentWeather/main/temp_min}°"
-								title="{localModel>/CurrentWeather/weather/0/description}"
-							/>
-						</f:header>
-						<f:content>
-							<HBox alignItems="Center">
-								<ImageContent src="../img/{localModel>/CurrentWeather/weather/0/icon}.png"/>
-							</HBox>
-						</f:content>
-					</f:Card>
-					<f:Card
-						class="sapUiMediumMargin"
-						width="140px"
-					>
-						<f:header>
-							<card:NumericHeader
-								number="{localModel>/CurrentWeather/main/feels_like}°"
-								title="{i18n>feelsLikeTitle}"
-							/>
-						</f:header>
-					</f:Card>
-					<f:Card
-						class="sapUiMediumMargin"
-						width="140px"
-					>
-						<f:header>
-							<card:NumericHeader
-								number="{localModel>/CurrentWeather/main/humidity}%"
-								title="{i18n>humidityTitle}"
-							/>
-						</f:header>
-					</f:Card>
-				</HBox>
+				<f:Card
+					class="sapUiMediumMargin"
+					width="250px"
+				>
+					<f:header>
+						<card:NumericHeader
+							number="{localModel>/CurrentWeather/main/temp}°"
+							subtitle="Máx.: {localModel>/CurrentWeather/main/temp_max}° Mín.: {localModel>/CurrentWeather/main/temp_min}°"
+							title="{localModel>/CurrentWeather/weather/0/description}"
+						/>
+					</f:header>
+					<f:content>
+						<HBox alignItems="Center">
+							<ImageContent src="../img/{localModel>/CurrentWeather/weather/0/icon}.png"/>
+						</HBox>
+					</f:content>
+				</f:Card>
+				<f:Card
+					class="sapUiMediumMargin"
+					width="140px"
+				>
+					<f:header>
+						<card:NumericHeader
+							number="{localModel>/CurrentWeather/main/feels_like}°"
+							title="{i18n>feelsLikeTitle}"
+						/>
+					</f:header>
+				</f:Card>
+				<f:Card
+					class="sapUiMediumMargin"
+					width="140px"
+				>
+					<f:header>
+						<card:NumericHeader
+							number="{localModel>/CurrentWeather/main/humidity}%"
+							title="{i18n>humidityTitle}"
+						/>
+					</f:header>
+				</f:Card>
+				<f:Card
+					class="sapUiMediumMargin"
+					width="160px"
+				>
+					<f:header>
+						<card:NumericHeader
+							number="{localModel>/CurrentWeather/wind/speed}km/h"
+							title="{i18n>windSpeedTitle}"
+						/>
+					</f:header>
+				</f:Card>
+				<f:Card
+					class="sapUiMediumMargin"
+					width="160px"
+				>
+					<f:header>
+						<card:NumericHeader
+							number="{localModel>/CurrentWeather/rain/1h}mm"
+							title="{i18n>rainTitle}"
+							subtitle="{i18n>lastHourSubTitle}"
+						/>
+					</f:header>
+				</f:Card>
 			</content>
 		</Page>
 	</App>

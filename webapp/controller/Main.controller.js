@@ -47,6 +47,10 @@ sap.ui.define(
         oWeatherData.weather[0].description = this._capitalizeSentence(
           oWeatherData.weather[0].description,
         );
+        
+        // Convert wind speed to km/h
+        oWeatherData.wind.speed = Math.round(oWeatherData.wind.speed * 3.6);
+
         oLocalModel.setProperty('/CurrentWeather', oWeatherData);
       },
 

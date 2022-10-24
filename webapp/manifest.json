@@ -53,8 +53,7 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.f": {},
-        "sap.ui.comp": {}
+        "sap.f": {}
       }
     },
 
