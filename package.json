@@ -3,7 +3,7 @@
   "description": "Weather Fiori App",
   "scripts": {
     "build": "ui5 build",
-    "start": "ui5 serve -o index.html"
+    "start": "ui5 serve -o index.html --accept-remote-connections"
   },
   "devDependencies": {
     "@ui5/cli": "^2.10.4",
