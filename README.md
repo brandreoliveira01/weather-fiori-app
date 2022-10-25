@@ -20,5 +20,6 @@ npm start
 ### Using Docker
 >After cloning the repo to your local machine, run
 ```
-docker-compose up –build
+docker compose up -–build
 ```
+### Access app: http://localhost:8080/index.html
