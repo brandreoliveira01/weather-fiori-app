@@ -127,13 +127,12 @@
 				</f:Card>
 				<f:Card
 					class="sapUiMediumMargin"
-					width="160px"
+					width="180px"
 				>
 					<f:header>
 						<card:NumericHeader
-							number="{localModel>/CurrentWeather/rain/1h}mm"
-							title="{i18n>rainTitle}"
-							subtitle="{i18n>lastHourSubTitle}"
+							number="{localModel>/CurrentWeather/main/pressure}hPa"
+							title="{i18n>pressureTitle}"
 						/>
 					</f:header>
 				</f:Card>
